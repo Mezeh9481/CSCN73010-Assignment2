@@ -1,0 +1,64 @@
+..FFF...                                                                 [100%]
+================================== FAILURES ===================================
+________________________ test_missing_file_is_rejected ________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_missing_file_is_rejected(client):
+        """A request without a file returns a clear client error."""
+        response = client.post("/prediction", data={})
+>       assert response.status_code == 400
+E       assert 200 == 400
+E        +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+
+tests\test_app.py:48: AssertionError
+_______________________ test_empty_filename_is_rejected _______________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_empty_filename_is_rejected(client):
+        """An empty filename is treated as no selection."""
+        response = client.post(
+            "/prediction",
+            data={"file": (make_image(), "")},
+            content_type="multipart/form-data",
+        )
+>       assert response.status_code == 400
+E       assert 200 == 400
+E        +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+
+tests\test_app.py:59: AssertionError
+---------------------------- Captured stderr call -----------------------------
+2026-10-25 00:25:14.230925: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-25 00:25:16.162327: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+_______________________ test_invalid_image_is_rejected ________________________
+
+client = <FlaskClient <Flask 'app'>>
+
+    def test_invalid_image_is_rejected(client):
+        """Bytes that are not an image do not reach the model."""
+        response = client.post(
+            "/prediction",
+            data={"file": (BytesIO(b"not an image"), "bad.png")},
+            content_type="multipart/form-data",
+        )
+>       assert response.status_code == 400
+E       assert 200 == 400
+E        +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+
+tests\test_app.py:69: AssertionError
+============================== warnings summary ===============================
+tests/test_app.py::test_empty_filename_is_rejected
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+tests/test_app.py::test_empty_filename_is_rejected
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_app.py::test_missing_file_is_rejected - assert 200 == 400
+FAILED tests/test_app.py::test_empty_filename_is_rejected - assert 200 == 400
+FAILED tests/test_app.py::test_invalid_image_is_rejected - assert 200 == 400
+3 failed, 5 passed, 2 warnings in 6.78s
+
+Exit code: 1

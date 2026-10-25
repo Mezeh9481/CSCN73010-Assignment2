@@ -1,0 +1,20 @@
+repos:
+  - repo: local
+    hooks:
+      - id: text-and-yaml
+        name: Text whitespace and YAML syntax
+        entry: python tools/check_files.py
+        language: system
+        types: [text]
+      - id: pylint
+        name: pylint
+        entry: python -m pylint app.py model.py tests tools
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: pytest
+        name: pytest
+        entry: python -m pytest -q
+        language: system
+        pass_filenames: false
+        types: [python]

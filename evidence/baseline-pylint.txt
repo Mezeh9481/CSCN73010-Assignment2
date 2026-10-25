@@ -1,0 +1,26 @@
+************* Module app
+app.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+app.py:11:0: C0116: Missing function or method docstring (missing-function-docstring)
+app.py:17:0: C0116: Missing function or method docstring (missing-function-docstring)
+app.py:24:4: W0702: No exception type(s) specified (bare-except)
+app.py:17:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+************* Module model
+model.py:33:0: C0327: Mixed line endings LF and CRLF (mixed-line-endings)
+model.py:25:4: E0401: Unable to import 'tensorflow.keras.models' (import-error)
+model.py:25:4: C0415: Import outside toplevel (tensorflow.keras.models.load_model) (import-outside-toplevel)
+model.py:25:4: E0611: No name 'keras' in module 'tensorflow' (no-name-in-module)
+************* Module tests.conftest
+tests\conftest.py:13:0: C0327: Mixed line endings LF and CRLF (mixed-line-endings)
+************* Module tests.test_app
+tests\test_app.py:75:0: C0327: Mixed line endings LF and CRLF (mixed-line-endings)
+************* Module tests.test_model
+tests\test_model.py:38:0: C0327: Mixed line endings LF and CRLF (mixed-line-endings)
+tests\test_model.py:29:8: C0116: Missing function or method docstring (missing-function-docstring)
+tests\test_model.py:26:4: R0903: Too few public methods (1/2) (too-few-public-methods)
+tests\test_model.py:34:44: W0108: Lambda may not be necessary (unnecessary-lambda)
+
+-----------------------------------
+Your code has been rated at 7.65/10
+
+
+Exit code: 30

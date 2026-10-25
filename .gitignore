@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.pylint.d/
+*.py[cod]
+.temp/
+.idea/
+.testdeps/
+.cache/
