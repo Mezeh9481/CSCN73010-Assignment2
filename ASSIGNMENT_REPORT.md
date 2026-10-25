@@ -91,9 +91,12 @@ flowchart LR
 
 Local tests found three genuine input-handling failures, and Pylint rated the earlier code 7.65/10. After the route and model corrections, all nine tests pass and Pylint rates the code 10.00/10. The saved baseline logs document this local progression.
 
-The first [GitHub Actions run](https://github.com/Mezeh9481/CSCN73010-Assignment2/actions/runs/40164432359) was triggered by commit `259388f` on `main`, pushed by Mezeh9481. The `quality-and-tests` job succeeded. Its Pylint and pytest steps both passed.
+The first [GitHub Actions run](https://github.com/Mezeh9481/CSCN73010-Assignment2/actions/runs/40164432359) was triggered by commit `259388f` on `main`, pushed by Mezeh9481. The `quality-and-tests` job succeeded, including Pylint and pytest. The [second run](https://github.com/Mezeh9481/CSCN73010-Assignment2/actions/runs/40164836798) was triggered by commit `46955c7` and also passed.
 
 ![Successful GitHub Actions job](evidence/04-actions-success.png)
 *Figure 4. First GitHub Actions run, showing the passing Pylint and pytest steps.*
 
-The initial public push contained one commit. The earlier failures were local development checks, documented in the baseline logs; no failed remote CI run is documented.
+![Both successful workflow runs](evidence/05-actions-two-runs.png)
+*Figure 5. Both pushes produced successful GitHub Actions runs.*
+
+The earlier failures were local development checks, documented in the baseline logs. No failed remote CI run is documented.
