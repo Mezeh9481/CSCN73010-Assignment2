@@ -3,7 +3,7 @@
 **Course:** CSCN73010 - Software Quality III: Build and Release
 **Project:** Hand Digit Image Recognition
 **Starting point:** [Sachin-crypto/Flask_Image_Recognition](https://github.com/Sachin-crypto/Flask_Image_Recognition), revision `62d8114`
-**Individual GitHub repository:** https://github.com/Mezeh9481/CSCN73010-Assignment2 (code push and Actions evidence pending).
+**Individual GitHub repository:** https://github.com/Mezeh9481/CSCN73010-Assignment2 (main branch pushed; first CI run passed).
 
 ## 1. Setup and local deployment
 
@@ -91,4 +91,9 @@ flowchart LR
 
 Local tests found three genuine input-handling failures, and Pylint rated the earlier code 7.65/10. After the route and model corrections, all nine tests pass and Pylint rates the code 10.00/10. The saved baseline logs document this local progression.
 
-**GitHub Actions evidence is pending.** The source has not been pushed to the individual repository, so there are no remote workflow runs or Actions screenshots to report. Push the reviewed source, inspect the actual workflow runs, and add screenshots of relevant failed and passing checks before submission. Only report remote results after they occur.
+The first [GitHub Actions run](https://github.com/Mezeh9481/CSCN73010-Assignment2/actions/runs/40164432359) was triggered by commit `259388f` on `main`, pushed by Mezeh9481. The `quality-and-tests` job succeeded. Its Pylint and pytest steps both passed.
+
+![Successful GitHub Actions job](evidence/04-actions-success.png)
+*Figure 4. First GitHub Actions run, showing the passing Pylint and pytest steps.*
+
+The initial public push contained one commit. The earlier failures were local development checks, documented in the baseline logs; no failed remote CI run is documented.
